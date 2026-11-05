@@ -596,6 +596,12 @@ main,
 .project-card:hover .project-image > img {
   transform: scale(1.03);
 }
+[data-project="dollar-thrifty"] .project-image > img {
+  /* Crop the 15px browser scrollbar from the 753px capture. */
+  width: calc(100% * 753 / 738);
+  max-width: none;
+  transform-origin: left top;
+}
 .image-arrow {
   position: absolute;
   right: 12px;
