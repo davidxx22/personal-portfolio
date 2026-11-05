@@ -1513,6 +1513,10 @@ main,
 }
 @media screen {
   .page-frame {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  .page-frame#home {
     padding-bottom: 64px;
   }
 }
