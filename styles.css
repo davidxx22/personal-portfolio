@@ -603,12 +603,6 @@ main,
   margin-top: 18px;
   text-align: center;
 }
-.project-page-link {
-  color: var(--link-hover);
-}
-.project-page-link:hover {
-  text-decoration: underline;
-}
 .projects-archive h1 {
   margin: 16px 0 20px;
 }
