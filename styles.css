@@ -806,12 +806,20 @@ main,
 }
 @media (prefers-reduced-motion: no-preference) {
   .more-projects .button svg,
-  .intro-action svg {
+  .intro-action svg,
+  .panel-heading .page-nav-link svg,
+  .contact-arrow,
+  .back-to-top svg {
     transition: transform 0.2s ease;
   }
   .more-projects .button:is(:hover, :focus-visible) svg,
-  .intro-action:is(:hover, :focus-visible) svg {
+  .intro-action:is(:hover, :focus-visible) svg,
+  .panel-heading .page-nav-link:is(:hover, :focus-visible) svg,
+  .contact-item:is(:hover, :focus-visible) .contact-arrow {
     transform: translateX(3px);
+  }
+  .back-to-top:is(:hover, :focus-visible) svg {
+    transform: translateY(-3px);
   }
 }
 .button-text:hover {
