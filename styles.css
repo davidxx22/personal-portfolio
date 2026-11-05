@@ -363,8 +363,8 @@ main,
 .about-grid p {
   line-height: 1.85;
 }
-.about-grid p + p {
-  margin-top: 14px;
+.about-grid .about-bio {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
 }
 .objective {
   border-top: 1px dashed var(--line);
