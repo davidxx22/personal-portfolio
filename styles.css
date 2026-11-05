@@ -415,8 +415,7 @@ main,
   color: #333;
   padding-top: 2px;
 }
-.timeline h4,
-.education-entry h4 {
+.timeline h4 {
   font-size: 15px;
   font-weight: 650;
   letter-spacing: -0.015em;
@@ -430,54 +429,6 @@ main,
   font-size: 14px;
   margin-top: 10px;
   line-height: 1.8;
-}
-.education-entry {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 1px 0 4px;
-}
-.entry-icon {
-  width: 43px;
-  height: 43px;
-  background: var(--accent-soft);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-.education-entry p {
-  font-size: 14px;
-  margin-top: 6px;
-}
-.training-list article {
-  display: grid;
-  grid-template-columns: 102px minmax(0, 1fr);
-  gap: 15px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-}
-.training-list article:first-child {
-  padding-top: 0;
-}
-.training-list article:last-child {
-  padding-bottom: 0;
-  border: 0;
-}
-.training-list time {
-  font-size: 10px;
-  color: var(--muted);
-  padding-top: 2px;
-}
-.training-list h4 {
-  font-size: 13px;
-  line-height: 1.5;
-  font-weight: 600;
-}
-.training-list p {
-  font-size: 11px;
-  margin-top: 6px;
 }
 .skills-layout {
   display: block;
@@ -979,9 +930,6 @@ main,
   padding: 24px 7px;
   font-size: 10px;
 }
-.site-footer a:hover {
-  text-decoration: underline;
-}
 .project-dialog {
   width: min(720px, calc(100% - 32px));
   max-height: 90dvh;
@@ -1134,7 +1082,6 @@ main,
 .panel-heading h3,
 .eyebrow,
 .timeline-date,
-.entry-icon,
 .skill-icon,
 .image-arrow,
 .detail-button {
@@ -1286,26 +1233,8 @@ main,
   .timeline article > div > p:last-child {
     font-size: 13px;
   }
-  .education-entry {
-    align-items: start;
-    gap: 13px;
-  }
-  .education-entry h4 {
-    font-size: 13px;
-  }
-  .education-entry p {
-    font-size: 13px;
-  }
-  .training-list article {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
   .panel-heading h3 {
     font-size: 14px;
-  }
-  .training-panel .panel-heading {
-    flex-wrap: wrap;
-    gap: 7px;
   }
   .skills-grid {
     grid-template-columns: 1fr;
@@ -1403,24 +1332,11 @@ main,
   .timeline-date {
     font-size: 10px;
   }
-  .timeline h4,
-  .education-entry h4 {
+  .timeline h4 {
     font-size: 15px;
   }
   .timeline article > div > p:last-child {
     font-size: 14px;
-  }
-  .education-entry p {
-    font-size: 14px;
-  }
-  .training-list h4 {
-    font-size: 14px;
-  }
-  .training-list p {
-    font-size: 12px;
-  }
-  .training-list time {
-    font-size: 10px;
   }
   .skills-grid {
     gap: 12px;
@@ -1727,11 +1643,35 @@ main,
   color: var(--muted);
   font-size: clamp(10px, 2vw, 13px);
 }
-.work-widget {
+.floating-actions {
   position: fixed;
   z-index: 20;
   right: max(12px, env(safe-area-inset-right));
   bottom: max(12px, env(safe-area-inset-bottom));
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+.back-to-top {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.back-to-top:hover {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.floating-actions:has(.work-widget[open]) .back-to-top {
+  display: none;
+}
+.work-widget {
+  position: relative;
 }
 .work-widget summary {
   display: flex;
@@ -1834,7 +1774,7 @@ main,
     padding: 0;
   }
   .site-header,
-  .work-widget,
+  .floating-actions,
   .project-toolbar,
   .project-actions,
   .social-strip,

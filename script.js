@@ -113,8 +113,10 @@ const menuSections = sectionLinks.map((link) =>
   document.querySelector(link.getAttribute("href")),
 );
 let sectionUpdatePending = false;
+const backToTop = document.querySelector(".back-to-top");
 
 function updateCurrentSection() {
+  backToTop.hidden = window.scrollY < 240;
   const marker = Math.max(160, sectionMenu.getBoundingClientRect().bottom + 24);
   let current = -1;
   menuSections.forEach((section, index) => {
