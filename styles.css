@@ -572,7 +572,7 @@ main,
   padding-bottom: 8px;
 }
 .panel.projects-section#projects {
-  padding-bottom: 18px;
+  padding-bottom: 24px;
 }
 .section-heading {
   display: flex;
@@ -600,7 +600,7 @@ main,
   gap: 18px;
 }
 .more-projects {
-  margin-top: 18px;
+  margin-top: 24px;
   text-align: center;
 }
 .projects-archive h1 {
