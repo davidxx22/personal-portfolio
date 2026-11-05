@@ -1241,8 +1241,7 @@ main,
   .skills-grid {
     grid-auto-rows: 1fr;
   }
-  .skill-tags,
-  .professional-list {
+  .skill-tags {
     display: grid;
     grid-template-rows: repeat(3, 32px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1254,9 +1253,6 @@ main,
   }
   .skill-tags li {
     min-width: 0;
-  }
-  .professional-list {
-    grid-template-columns: 1fr;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1386,9 +1382,13 @@ main,
 }
 .intro-action {
   margin-top: 24px;
-  border-radius: 7px;
+  min-width: 168px;
+  min-height: 48px;
+  border-radius: 8px;
   background: var(--accent);
   color: white;
+  font-size: 16px;
+  font-weight: 600;
 }
 .intro-action:disabled {
   cursor: default;
@@ -1397,16 +1397,15 @@ main,
   background: color-mix(in srgb, var(--accent) 85%, black);
 }
 @media screen {
-  [data-theme="dark"] .intro-action {
-    min-width: 168px;
-    min-height: 48px;
-    border-radius: 8px;
+  [data-theme="dark"] .intro-action,
+  [data-theme="dark"] .more-projects .button,
+  [data-theme="dark"] .work-widget summary {
     background: #fff;
     color: #141414;
-    font-size: 16px;
-    font-weight: 600;
   }
-  [data-theme="dark"] .intro-action:not(:disabled):hover {
+  [data-theme="dark"] .intro-action:not(:disabled):hover,
+  [data-theme="dark"] .more-projects .button:hover,
+  [data-theme="dark"] .work-widget summary:hover {
     background: #eee;
   }
 }
