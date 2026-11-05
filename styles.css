@@ -1345,7 +1345,7 @@ main,
 .intro-profile .social-strip a[href*="upwork.com"]:is(:hover, :focus-visible) {
   color: #108a00;
 }
-.intro-profile .social-strip a[href^="mailto:"]:is(:hover, :focus-visible) {
+.intro-profile .social-strip a[href^="https://mail.google.com/"]:is(:hover, :focus-visible) {
   color: #ea4335;
 }
 .intro-social-icon,
