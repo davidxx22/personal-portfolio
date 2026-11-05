@@ -808,6 +808,7 @@ main,
   .more-projects .button svg,
   .intro-action svg,
   .panel-heading .page-nav-link svg,
+  .portfolio-back-link svg,
   .contact-arrow,
   .back-to-top svg {
     transition: transform 0.2s ease;
@@ -820,6 +821,9 @@ main,
   }
   .back-to-top:is(:hover, :focus-visible) svg {
     transform: translateY(-3px);
+  }
+  .portfolio-back-link:is(:hover, :focus-visible) svg {
+    transform: translateX(-3px);
   }
 }
 .button-text:hover {
