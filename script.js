@@ -53,7 +53,7 @@ if (workGallery) {
   const status = workGallery.querySelector(".gallery-status");
   const projectAt = (index) => (index + projects.length) % projects.length;
   let activeProject = 0;
-  let slideAnimations = [];
+  let galleryAnimations = [];
   const previewSlots = () => [
     previews[0],
     projects[activeProject].querySelector(".project-image"),
@@ -61,7 +61,7 @@ if (workGallery) {
   ];
 
   function showProject(index, direction = 0) {
-    slideAnimations.forEach((animation) => animation.cancel());
+    galleryAnimations.forEach((animation) => animation.cancel());
     const animate = direction !== 0 && !motionPreference.matches;
     const previousRects = animate ? previewSlots().map((slot) => slot.getBoundingClientRect()) : [];
 
@@ -74,11 +74,12 @@ if (workGallery) {
       preview.querySelector("img").src = neighbor.querySelector("img").src;
       preview.setAttribute("aria-label", "Show " + neighbor.querySelector("h2").textContent);
     });
-    const title = projects[activeProject].querySelector("h2").textContent;
-    status.textContent = `Project ${activeProject + 1} of ${projects.length}: ${title}`;
+    const project = projects[activeProject];
+    const title = project.querySelector("h2");
+    status.textContent = `Project ${activeProject + 1} of ${projects.length}: ${title.textContent}`;
 
     if (animate) {
-      slideAnimations = previewSlots().map((slot, position) => {
+      galleryAnimations = previewSlots().map((slot, position) => {
         const previous = previousRects[position + direction];
         const current = slot.getBoundingClientRect();
         const x = previous ? previous.left - current.left : direction * 12;
@@ -94,6 +95,15 @@ if (workGallery) {
           { duration: 320, easing: "ease-out" },
         );
       });
+      [title, project.querySelector("p")].forEach((element, position) => {
+        galleryAnimations.push(element.animate(
+          [
+            { opacity: 0, transform: "translateY(10px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          { duration: 500, delay: 60 + position * 65, easing: "ease-out", fill: "backwards" },
+        ));
+      });
     }
   }
 
@@ -106,6 +116,34 @@ if (workGallery) {
     workGallery.classList.add("is-interactive");
     status.hidden = false;
     showProject(0);
+
+    let touchStart;
+    let suppressClick = false;
+    workGallery.addEventListener("pointerdown", (event) => {
+      suppressClick = false;
+      if (event.pointerType === "touch" && event.isPrimary) {
+        touchStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      }
+    });
+    workGallery.addEventListener("pointercancel", (event) => {
+      if (touchStart?.id === event.pointerId) touchStart = undefined;
+    });
+    workGallery.addEventListener("pointerup", (event) => {
+      if (touchStart?.id !== event.pointerId) return;
+      const x = event.clientX - touchStart.x;
+      const y = event.clientY - touchStart.y;
+      touchStart = undefined;
+      if (Math.abs(x) < 40 || Math.abs(x) <= Math.abs(y)) return;
+      const direction = x < 0 ? 1 : -1;
+      suppressClick = true;
+      showProject(activeProject + direction, direction);
+    });
+    workGallery.addEventListener("click", (event) => {
+      if (!suppressClick || event.detail === 0) return;
+      suppressClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+    }, { capture: true });
   }
 }
 

@@ -617,6 +617,9 @@ main,
   margin-top: 28px;
   text-align: center;
 }
+.work-gallery.is-interactive {
+  touch-action: pan-y pinch-zoom;
+}
 .gallery-project {
   width: min(100%, 36rem);
   margin: 0 auto 28px;
