@@ -1,4 +1,3 @@
-const profileSidebar = document.querySelector(".profile-sidebar");
 const sectionMenu = document.querySelector(".section-menu");
 const themeToggle = sectionMenu.querySelector(".theme-toggle");
 const pageTheme = document.documentElement.dataset;
@@ -13,35 +12,6 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("portfolio-theme", pageTheme.theme);
   } catch {}
 });
-
-function positionProfileSidebar() {
-  const height = profileSidebar.getBoundingClientRect().height;
-  const menuHeight = sectionMenu.offsetHeight;
-  const menuStyle = getComputedStyle(sectionMenu);
-  const menuClearance = menuHeight
-    ? menuHeight + parseFloat(menuStyle.top) + parseFloat(menuStyle.marginBottom)
-    : 24;
-  const top = Math.min(menuClearance, window.innerHeight - height - 24);
-  profileSidebar.style.setProperty("--profile-top", `${top}px`);
-  profileSidebar.parentElement.style.setProperty("--profile-top", `${top}px`);
-  const frame = document.querySelector(".page-frame");
-  if (window.innerWidth <= 1100 || getComputedStyle(profileSidebar).position !== "sticky") {
-    frame.style.paddingBottom = "0px";
-    return;
-  }
-  const shell = profileSidebar.parentElement;
-  const existingSpace = parseFloat(frame.style.paddingBottom) || 0;
-  const spaceBelowCards = document.documentElement.scrollHeight - (shell.getBoundingClientRect().bottom + window.scrollY);
-  const requiredSpace = window.innerHeight - top - height;
-  frame.style.paddingBottom = `${Math.min(24, Math.max(0, existingSpace + requiredSpace - spaceBelowCards))}px`;
-}
-
-positionProfileSidebar();
-window.addEventListener("resize", positionProfileSidebar);
-window.addEventListener("load", positionProfileSidebar);
-if ("ResizeObserver" in window) {
-  new ResizeObserver(positionProfileSidebar).observe(profileSidebar);
-}
 
 const filterBar = document.querySelector(".project-filters");
 const filterButtons = [...filterBar.querySelectorAll("button")];
