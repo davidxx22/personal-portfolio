@@ -339,9 +339,17 @@ main,
 .panel-heading h3,
 .projects-archive h1,
 .contact-section h2 {
-  font-size: clamp(26px, 4vw, 32px);
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: -0.035em;
+}
+@media (min-width: 40rem) {
+  .panel-heading h2,
+  .panel-heading h3,
+  .projects-archive h1,
+  .contact-section h2 {
+    font-size: 1.875rem;
+  }
 }
 
 .about-grid {
