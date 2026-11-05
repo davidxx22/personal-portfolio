@@ -46,6 +46,40 @@ motionPreference.addEventListener("change", configureReveals);
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 
+const workGallery = document.querySelector(".work-gallery");
+if (workGallery) {
+  const projects = [...workGallery.querySelectorAll(".gallery-project")];
+  const previews = [...workGallery.querySelectorAll(".gallery-preview")];
+  const status = workGallery.querySelector(".gallery-status");
+  const projectAt = (index) => (index + projects.length) % projects.length;
+  let activeProject = 0;
+
+  function showProject(index) {
+    activeProject = projectAt(index);
+    projects.forEach((project, position) => {
+      project.hidden = position !== activeProject;
+    });
+    previews.forEach((preview, position) => {
+      const neighbor = projects[projectAt(activeProject + (position === 0 ? -1 : 1))];
+      preview.querySelector("img").src = neighbor.querySelector("img").src;
+      preview.setAttribute("aria-label", "Show " + neighbor.querySelector("h2").textContent);
+    });
+    const title = projects[activeProject].querySelector("h2").textContent;
+    status.textContent = `Project ${activeProject + 1} of ${projects.length}: ${title}`;
+  }
+
+  if (projects.length > 1) {
+    previews.forEach((preview, position) => {
+      const offset = position === 0 ? -1 : 1;
+      preview.addEventListener("click", () => showProject(activeProject + offset));
+      preview.hidden = false;
+    });
+    workGallery.classList.add("is-interactive");
+    status.hidden = false;
+    showProject(0);
+  }
+}
+
 const sectionLinks = [...sectionMenu.querySelectorAll(".section-menu-links a")];
 const menuToggle = sectionMenu.querySelector(".menu-toggle");
 sectionMenu.querySelector(".nav-logo").addEventListener("click", () => {
