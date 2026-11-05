@@ -365,7 +365,7 @@ main,
   font-weight: 650;
 }
 .about-grid p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.85;
 }
 .objective {
@@ -418,7 +418,7 @@ main,
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 .timeline-date {
-  font-size: 10px;
+  font-size: 0.75rem;
   color: #333;
   padding-top: 2px;
 }
@@ -988,9 +988,6 @@ main,
   .objective {
     padding-left: 22px;
   }
-  .about-grid p {
-    font-size: 13px;
-  }
   .about-grid h3 {
     font-size: 20px;
   }
@@ -1000,9 +997,6 @@ main,
   .timeline article {
     grid-template-columns: 100px minmax(0, 1fr);
     gap: 15px;
-  }
-  .timeline-date {
-    font-size: 9px;
   }
   .skill-card {
     padding: 21px;
@@ -1050,9 +1044,6 @@ main,
   }
   .about-grid .objective h3 {
     font-size: 12px;
-  }
-  .about-grid p {
-    font-size: 14px;
   }
 
   .timeline article {
@@ -1143,13 +1134,10 @@ main,
     font-size: 25px;
   }
   .about-grid p {
-    font-size: 15px;
+    font-size: 16px;
   }
   .objective h3 {
     font-size: 14px !important;
-  }
-  .timeline-date {
-    font-size: 10px;
   }
   .timeline h4 {
     font-size: 15px;
