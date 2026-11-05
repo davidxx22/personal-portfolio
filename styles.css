@@ -817,7 +817,8 @@ main,
   .more-projects .button:is(:hover, :focus-visible) svg,
   .intro-action:is(:hover, :focus-visible) svg,
   .panel-heading .page-nav-link:is(:hover, :focus-visible) svg,
-  .contact-item:is(:hover, :focus-visible) .contact-arrow {
+  .contact-item:is(:hover, :focus-visible) .contact-arrow,
+  .work-panel a:is(:hover, :focus-visible) .work-arrow {
     transform: translateX(3px);
   }
   .back-to-top:is(:hover, :focus-visible) svg {
@@ -825,9 +826,6 @@ main,
   }
   .portfolio-back-link:is(:hover, :focus-visible) svg {
     transform: translateX(-3px);
-  }
-  .work-panel a:is(:hover, :focus-visible) .work-arrow {
-    transform: translate(3px, -3px);
   }
 }
 .button-text:hover {
