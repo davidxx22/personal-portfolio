@@ -197,8 +197,7 @@ main {
   position: sticky;
   top: var(--nav-top);
   z-index: 10;
-  width: min(100%, 760px);
-  margin: 0 auto 20px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr) 44px;
   align-items: center;
@@ -1563,10 +1562,10 @@ main {
       radial-gradient(ellipse 560px 520px at 5% 760px, color-mix(in srgb, #6497aa 13%, transparent), transparent);
   }
 }
-.portfolio-main,
-.site-footer {
-  width: min(100%, 1120px);
-  margin-inline: auto;
+@media screen and (min-width: 1024px) {
+  .page-frame {
+    padding-inline: 17.5%;
+  }
 }
 .portfolio-main {
   gap: clamp(32px, 6vw, 78px);
@@ -1576,7 +1575,7 @@ main {
 .portfolio-process {
   display: grid;
   align-items: center;
-  gap: clamp(24px, 8vw, 112px);
+  gap: clamp(24px, 6vw, 80px);
 }
 .portfolio-hero {
   grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
@@ -1729,7 +1728,7 @@ main {
 .projects-section .project-toolbar {
   justify-content: center;
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 1200px) {
   .projects-section .project-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
