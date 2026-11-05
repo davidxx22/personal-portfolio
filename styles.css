@@ -336,10 +336,12 @@ main,
   margin-bottom: 25px;
 }
 .panel-heading h2,
-.panel-heading h3 {
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  font-weight: 650;
+.panel-heading h3,
+.projects-archive h1,
+.contact-section h2 {
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
 }
 
 .about-grid {
@@ -780,9 +782,6 @@ main,
 }
 .contact-section h2 {
   margin-bottom: 18px;
-  font-size: clamp(26px, 4vw, 32px);
-  font-weight: 400;
-  letter-spacing: -0.035em;
 }
 .contact-grid {
   display: grid;
@@ -929,8 +928,6 @@ main,
     opacity 0.5s ease,
     transform 0.5s ease;
 }
-.panel-heading h2,
-.panel-heading h3,
 .eyebrow,
 .timeline-date,
 .skill-icon,
@@ -1134,11 +1131,6 @@ main,
     margin-bottom: 23px;
     gap: 14px;
   }
-  .panel-heading h2,
-  .panel-heading h3 {
-    font-size: 14px;
-  }
-
   .about-grid h3 {
     font-size: 25px;
   }
