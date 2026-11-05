@@ -1656,8 +1656,21 @@ main,
   mask: url("assets/icons/github.svg") center / contain no-repeat;
 }
 .intro-upwork {
-  background: currentColor;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #151515;
+  transition: background-color 150ms;
+}
+.intro-upwork::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: white;
   mask: url("assets/icons/upwork.svg") center / contain no-repeat;
+}
+.intro-profile .social-strip a:is(:hover, :focus-visible) .intro-upwork {
+  background: currentColor;
 }
 .intro-hero h1 {
   margin-top: 22px;
