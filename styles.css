@@ -225,7 +225,7 @@ main,
   grid-column: 3;
   grid-row: 1;
 }
-@media (min-width: 769px) {
+@media (width > 600px) {
   .theme-toggle {
     position: relative;
   }
@@ -259,12 +259,17 @@ main,
 .menu-toggle {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .section-menu {
+    grid-template-columns: 44px minmax(0, 1fr) 44px 44px;
+  }
   .menu-toggle {
     display: grid;
-    grid-column: 2;
+    grid-column: 4;
     grid-row: 1;
-    justify-self: center;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
   }
   .burger-icon {
     display: flex;
@@ -278,7 +283,7 @@ main,
     background: currentColor;
     border-radius: 1px;
   }
-  .menu-toggle[aria-expanded="false"]:not([hidden]) + .section-menu-links {
+  .section-menu:has(.menu-toggle[aria-expanded="false"]:not([hidden])) .section-menu-links {
     display: none;
   }
   .section-menu-links {

@@ -149,6 +149,7 @@ if (workGallery) {
 
 const sectionLinks = [...sectionMenu.querySelectorAll(".section-menu-links a")];
 const menuToggle = sectionMenu.querySelector(".menu-toggle");
+const phoneMenu = window.matchMedia("(max-width: 600px)");
 sectionMenu.querySelector(".nav-logo").addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", "false");
 });
@@ -156,11 +157,12 @@ menuToggle.hidden = false;
 menuToggle.addEventListener("click", () => {
   const expanded = menuToggle.getAttribute("aria-expanded") === "true";
   menuToggle.setAttribute("aria-expanded", String(!expanded));
+  if (!expanded) sectionLinks[0]?.focus({ preventScroll: true });
 });
 sectionLinks.forEach((link) => {
   link.addEventListener("click", () => {
     menuToggle.setAttribute("aria-expanded", "false");
-    if (window.matchMedia("(max-width: 768px)").matches) menuToggle.focus({ preventScroll: true });
+    if (phoneMenu.matches) menuToggle.focus({ preventScroll: true });
   });
 });
 sectionMenu.addEventListener("keydown", (event) => {
@@ -169,7 +171,7 @@ sectionMenu.addEventListener("keydown", (event) => {
     menuToggle.focus();
   }
 });
-window.matchMedia("(max-width: 768px)").addEventListener("change", () => {
+phoneMenu.addEventListener("change", () => {
   menuToggle.setAttribute("aria-expanded", "false");
 });
 const workWidget = document.querySelector(".work-widget");
