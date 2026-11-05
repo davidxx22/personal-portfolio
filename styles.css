@@ -609,8 +609,7 @@ main,
   font-weight: 700;
 }
 .gallery-intro,
-.gallery-project p,
-.gallery-status {
+.gallery-project p {
   color: var(--muted);
 }
 .work-gallery {
@@ -626,6 +625,10 @@ main,
   width: 62%;
   margin-bottom: 0;
 }
+.gallery-preview,
+.gallery-project .project-image {
+  transform-origin: top left;
+}
 .gallery-project .project-image {
   z-index: 1;
   border: 1px solid var(--line);
@@ -636,16 +639,11 @@ main,
   margin-top: 20px;
   font-size: clamp(18px, 3vw, 24px);
 }
-.gallery-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 12px;
+.gallery-project p {
+  margin-top: 10px;
 }
-.gallery-links a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.gallery-links {
+  margin-top: 18px;
 }
 .gallery-preview {
   position: absolute;
@@ -688,10 +686,6 @@ main,
 .gallery-next span {
   right: 4px;
   left: auto;
-}
-.gallery-status {
-  margin-top: 12px;
-  font-size: 12px;
 }
 .project-card {
   border-radius: 17px;
@@ -888,11 +882,13 @@ main,
   background: color-mix(in srgb, var(--accent) 80%, black);
 }
 .more-projects .button,
+.gallery-action,
 .intro-action {
   gap: 6px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .more-projects .button svg,
+  .gallery-action svg,
   .intro-action svg,
   .panel-heading .page-nav-link svg,
   .portfolio-back-link svg,
@@ -902,6 +898,7 @@ main,
     transition: transform 0.2s ease;
   }
   .more-projects .button:is(:hover, :focus-visible) svg,
+  .gallery-action:is(:hover, :focus-visible) svg,
   .intro-action:is(:hover, :focus-visible) svg,
   .panel-heading .page-nav-link:is(:hover, :focus-visible) svg,
   .contact-item:is(:hover, :focus-visible) .contact-arrow,
@@ -1469,6 +1466,7 @@ main,
 }
 .intro-action,
 .more-projects .button,
+.gallery-action,
 .work-widget summary {
   min-height: 48px;
   font-size: 16px;
@@ -1491,12 +1489,14 @@ main,
 @media screen {
   [data-theme="dark"] .intro-action,
   [data-theme="dark"] .more-projects .button,
+  [data-theme="dark"] .gallery-action,
   [data-theme="dark"] .work-widget summary {
     background: #fff;
     color: #141414;
   }
   [data-theme="dark"] .intro-action:not(:disabled):hover,
   [data-theme="dark"] .more-projects .button:hover,
+  [data-theme="dark"] .gallery-action:hover,
   [data-theme="dark"] .work-widget summary:hover {
     background: #eee;
   }

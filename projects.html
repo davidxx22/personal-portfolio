@@ -16,6 +16,11 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="chevron-right" viewBox="0 0 12 12">
+        <path d="m4.5 2.5 3 3.5-3 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+    </svg>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-frame">
       <header class="site-header">
@@ -45,7 +50,7 @@
         </nav>
       </header>
       <main id="main" class="projects-archive">
-        <section class="panel section" aria-labelledby="projects-title">
+        <section aria-labelledby="projects-title">
           <div class="container">
             <a class="page-nav-link portfolio-back-link" href="index.html#projects">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -54,7 +59,7 @@
               Back to portfolio
             </a>
             <h1 id="projects-title">Work Gallery</h1>
-            <p class="gallery-intro">A collection of storefronts and websites I’ve built.</p>
+            <p class="gallery-intro">A collections of projects I've built</p>
             <div class="work-gallery">
               <button class="gallery-preview gallery-previous" type="button" hidden>
                 <img src="assets/projects/barbershop.png" alt="" />
@@ -71,8 +76,10 @@
                 <h2>SIDEFORM</h2>
                 <p>An apparel e-commerce theme designed for Shopify, with clean product displays and easy-to-navigate shopping.</p>
                 <div class="gallery-links">
-                  <a href="https://sideform.vercel.app/" target="_blank" rel="noopener noreferrer">View project</a>
-                  <a href="https://github.com/davidxx22/sideform" target="_blank" rel="noopener noreferrer">Source</a>
+                  <a class="button button-primary gallery-action" href="https://sideform.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    View Project
+                    <svg width="12" height="12" aria-hidden="true"><use href="#chevron-right" /></svg>
+                  </a>
                 </div>
               </article>
               <article class="gallery-project" data-project="dollar-thrifty">
@@ -82,8 +89,10 @@
                 <h2>Dollar Thrifty St. Maarten</h2>
                 <p>A responsive car rental website redesign with fleet search, vehicle filters, and a guided reservation form.</p>
                 <div class="gallery-links">
-                  <a href="https://dollarthriftysxm.vercel.app/" target="_blank" rel="noopener noreferrer">View project</a>
-                  <a href="https://github.com/davidxx22/dollar-thrifty-st.maarten-redesign" target="_blank" rel="noopener noreferrer">Source</a>
+                  <a class="button button-primary gallery-action" href="https://dollarthriftysxm.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    View Project
+                    <svg width="12" height="12" aria-hidden="true"><use href="#chevron-right" /></svg>
+                  </a>
                 </div>
               </article>
               <article
@@ -105,11 +114,13 @@
                 <h2>Gainesville’s Exclusive Barbershop</h2>
                 <p>A barbershop website showcasing services and barber profiles to help customers explore their grooming options.</p>
                 <div class="gallery-links">
-                  <a href="https://gainsvilles-exclusice-barbershop.vercel.app/" target="_blank" rel="noopener noreferrer">View project</a>
-                  <a href="https://github.com/davidxx22/GainsvillesExclusiceBarbershop" target="_blank" rel="noopener noreferrer">Source</a>
+                  <a class="button button-primary gallery-action" href="https://gainsvilles-exclusice-barbershop.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    View Project
+                    <svg width="12" height="12" aria-hidden="true"><use href="#chevron-right" /></svg>
+                  </a>
                 </div>
               </article>
-              <p class="gallery-status" aria-live="polite" hidden></p>
+              <p class="gallery-status visually-hidden" aria-live="polite" hidden></p>
             </div>
           </div>
         </section>

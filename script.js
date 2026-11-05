@@ -53,8 +53,18 @@ if (workGallery) {
   const status = workGallery.querySelector(".gallery-status");
   const projectAt = (index) => (index + projects.length) % projects.length;
   let activeProject = 0;
+  let slideAnimations = [];
+  const previewSlots = () => [
+    previews[0],
+    projects[activeProject].querySelector(".project-image"),
+    previews[1],
+  ];
 
-  function showProject(index) {
+  function showProject(index, direction = 0) {
+    slideAnimations.forEach((animation) => animation.cancel());
+    const animate = direction !== 0 && !motionPreference.matches;
+    const previousRects = animate ? previewSlots().map((slot) => slot.getBoundingClientRect()) : [];
+
     activeProject = projectAt(index);
     projects.forEach((project, position) => {
       project.hidden = position !== activeProject;
@@ -66,12 +76,31 @@ if (workGallery) {
     });
     const title = projects[activeProject].querySelector("h2").textContent;
     status.textContent = `Project ${activeProject + 1} of ${projects.length}: ${title}`;
+
+    if (animate) {
+      slideAnimations = previewSlots().map((slot, position) => {
+        const previous = previousRects[position + direction];
+        const current = slot.getBoundingClientRect();
+        const x = previous ? previous.left - current.left : direction * 12;
+        const y = previous ? previous.top - current.top : 0;
+        const scaleX = previous ? previous.width / current.width : 1;
+        const scaleY = previous ? previous.height / current.height : 1;
+
+        return slot.animate(
+          [
+            { transform: `translate(${x}px, ${y}px) scale(${scaleX}, ${scaleY})`, opacity: previous ? 1 : 0 },
+            { transform: "none", opacity: 1 },
+          ],
+          { duration: 320, easing: "ease-out" },
+        );
+      });
+    }
   }
 
   if (projects.length > 1) {
     previews.forEach((preview, position) => {
       const offset = position === 0 ? -1 : 1;
-      preview.addEventListener("click", () => showProject(activeProject + offset));
+      preview.addEventListener("click", () => showProject(activeProject + offset, offset));
       preview.hidden = false;
     });
     workGallery.classList.add("is-interactive");
