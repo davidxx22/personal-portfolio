@@ -13,6 +13,7 @@
       } catch {}
     </script>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -22,61 +23,93 @@
         />
       </symbol>
     </svg>
-    <main class="page-frame projects-archive">
-      <section class="panel section projects-section" aria-labelledby="projects-title">
-        <div class="container">
-          <a class="project-page-link" href="index.html#projects">← Back to portfolio</a>
-          <h1 id="projects-title">More Projects</h1>
-          <div class="project-grid">
-            <article
-              class="project-card"
-              data-category="individual"
-              data-project="barbershop"
-            >
-              <a
-                class="project-image"
-                href="https://gainsvilles-exclusice-barbershop.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit the barbershop website (opens in a new tab)"
-                ><img
-                  src="assets/projects/barbershop.png"
-                  width="1265"
-                  height="712"
-                  alt="Gainesville’s Exclusive Barbershop homepage with grooming services navigation"
-                  loading="lazy" /></a>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span>Individual · Business website</span
-                  ><span class="completed">Completed</span>
-                </div>
-                <h3>Gainesville’s Exclusive Barbershop</h3>
-                <p>
-                  A barbershop website showcasing services and barber
-                  profiles to help customers explore their grooming options.
-                </p>
-                <ul class="project-tech" aria-label="Technologies used">
-                  <li title="HTML"><img src="assets/icons/html5.svg" width="16" height="16" alt="HTML" loading="lazy" /></li>
-                  <li title="CSS"><img src="assets/icons/css3.svg" width="16" height="16" alt="CSS" loading="lazy" /></li>
-                  <li title="JavaScript"><img src="assets/icons/javascript.svg" width="16" height="16" alt="JavaScript" loading="lazy" /></li>
-                </ul>
-                <div class="project-actions">
-                  <a
-                    href="https://github.com/davidxx22/GainsvillesExclusiceBarbershop"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Barbershop source code on GitHub (opens in a new tab)"
-                    ><svg class="icon" aria-hidden="true">
-                      <use href="#github" />
-                    </svg>
-                    Source</a
-                  >
-                </div>
-              </div>
-            </article>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-frame">
+      <header class="site-header">
+        <nav class="section-menu" aria-label="Portfolio navigation">
+          <a class="nav-logo" href="index.html#home" aria-label="David Rey Bali-os, home">
+            <img src="assets/favicon.svg" width="32" height="32" alt="" />
+          </a>
+          <button class="menu-toggle" type="button" aria-label="Toggle section navigation" aria-expanded="false" aria-controls="section-menu-links" hidden>
+            <span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
+          <div class="section-menu-links" id="section-menu-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
           </div>
-        </div>
-      </section>
-    </main>
+          <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+            <svg class="icon theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.9 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.9 13.2Z" />
+            </svg>
+            <svg class="icon theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+      <main id="main" class="projects-archive">
+        <section class="panel section" aria-labelledby="projects-title">
+          <div class="container">
+            <a class="project-page-link" href="index.html#projects">← Back to portfolio</a>
+            <h1 id="projects-title">More Projects</h1>
+            <div class="project-grid">
+              <article
+                class="project-card"
+                data-category="individual"
+                data-project="barbershop"
+              >
+                <a
+                  class="project-image"
+                  href="https://gainsvilles-exclusice-barbershop.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit the barbershop website (opens in a new tab)"
+                  ><img
+                    src="assets/projects/barbershop.png"
+                    width="1265"
+                    height="712"
+                    alt="Gainesville’s Exclusive Barbershop homepage with grooming services navigation"
+                    loading="lazy" /></a>
+                <div class="project-body">
+                  <div class="project-meta">
+                    <span>Individual · Business website</span
+                    ><span class="completed">Completed</span>
+                  </div>
+                  <h3>Gainesville’s Exclusive Barbershop</h3>
+                  <p>
+                    A barbershop website showcasing services and barber
+                    profiles to help customers explore their grooming options.
+                  </p>
+                  <ul class="project-tech" aria-label="Technologies used">
+                    <li title="HTML"><img src="assets/icons/html5.svg" width="16" height="16" alt="HTML" loading="lazy" /></li>
+                    <li title="CSS"><img src="assets/icons/css3.svg" width="16" height="16" alt="CSS" loading="lazy" /></li>
+                    <li title="JavaScript"><img src="assets/icons/javascript.svg" width="16" height="16" alt="JavaScript" loading="lazy" /></li>
+                  </ul>
+                  <div class="project-actions">
+                    <a
+                      href="https://github.com/davidxx22/GainsvillesExclusiceBarbershop"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Barbershop source code on GitHub (opens in a new tab)"
+                      ><svg class="icon" aria-hidden="true">
+                        <use href="#github" />
+                      </svg>
+                      Source</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <p>© <span id="current-year">2026</span> David Rey Bali-os</p>
+      </footer>
+    </div>
   </body>
 </html>

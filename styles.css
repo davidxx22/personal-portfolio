@@ -575,9 +575,6 @@ main,
 .project-page-link:hover {
   text-decoration: underline;
 }
-.projects-archive {
-  padding-block: 32px;
-}
 .projects-archive h1 {
   margin: 16px 0 20px;
 }
@@ -1307,6 +1304,9 @@ main,
 }
 .intro-hero {
   padding-block: clamp(36px, 6vw, 72px) 16px;
+}
+.projects-archive {
+  padding-top: clamp(36px, 6vw, 72px);
 }
 .intro-profile {
   display: flex;

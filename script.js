@@ -71,58 +71,60 @@ sectionMenu.addEventListener("keydown", (event) => {
 window.matchMedia("(max-width: 768px)").addEventListener("change", () => {
   menuToggle.setAttribute("aria-expanded", "false");
 });
-const menuSections = sectionLinks.map((link) =>
-  document.querySelector(link.getAttribute("href")),
-);
-let sectionUpdatePending = false;
-const backToTop = document.querySelector(".back-to-top");
-
-function updateCurrentSection() {
-  backToTop.hidden = window.scrollY < 240;
-  const marker = Math.max(160, sectionMenu.getBoundingClientRect().bottom + 24);
-  let current = -1;
-  menuSections.forEach((section, index) => {
-    if (section.getBoundingClientRect().top <= marker) current = index;
-  });
-  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
-    current = sectionLinks.length - 1;
-  }
-  sectionLinks.forEach((link, index) => {
-    if (index === current) link.setAttribute("aria-current", "location");
-    else link.removeAttribute("aria-current");
-  });
-  sectionUpdatePending = false;
-}
-
 const workWidget = document.querySelector(".work-widget");
-const workTrigger = workWidget.querySelector("summary");
-const workClose = workWidget.querySelector(".work-close");
+if (workWidget) {
+  const menuSections = sectionLinks.map((link) =>
+    document.querySelector(link.getAttribute("href")),
+  );
+  let sectionUpdatePending = false;
+  const backToTop = document.querySelector(".back-to-top");
 
-function closeWorkWidget() {
-  workWidget.open = false;
-  workTrigger.focus();
-}
-
-workClose.hidden = false;
-workClose.addEventListener("click", closeWorkWidget);
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && workWidget.open) {
-    closeWorkWidget();
+  function updateCurrentSection() {
+    backToTop.hidden = window.scrollY < 240;
+    const marker = Math.max(160, sectionMenu.getBoundingClientRect().bottom + 24);
+    let current = -1;
+    menuSections.forEach((section, index) => {
+      if (section.getBoundingClientRect().top <= marker) current = index;
+    });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+      current = sectionLinks.length - 1;
+    }
+    sectionLinks.forEach((link, index) => {
+      if (index === current) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+    sectionUpdatePending = false;
   }
-});
-document.addEventListener("click", (event) => {
-  if (workWidget.open && !workWidget.contains(event.target)) {
+
+  const workTrigger = workWidget.querySelector("summary");
+  const workClose = workWidget.querySelector(".work-close");
+
+  function closeWorkWidget() {
     workWidget.open = false;
+    workTrigger.focus();
   }
-});
 
-function scheduleSectionUpdate() {
-  if (sectionUpdatePending) return;
-  sectionUpdatePending = true;
-  window.requestAnimationFrame(updateCurrentSection);
+  workClose.hidden = false;
+  workClose.addEventListener("click", closeWorkWidget);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && workWidget.open) {
+      closeWorkWidget();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (workWidget.open && !workWidget.contains(event.target)) {
+      workWidget.open = false;
+    }
+  });
+
+  function scheduleSectionUpdate() {
+    if (sectionUpdatePending) return;
+    sectionUpdatePending = true;
+    window.requestAnimationFrame(updateCurrentSection);
+  }
+
+  window.addEventListener("scroll", scheduleSectionUpdate, { passive: true });
+  window.addEventListener("resize", scheduleSectionUpdate);
+  window.addEventListener("load", scheduleSectionUpdate);
+  updateCurrentSection();
 }
-
-window.addEventListener("scroll", scheduleSectionUpdate, { passive: true });
-window.addEventListener("resize", scheduleSectionUpdate);
-window.addEventListener("load", scheduleSectionUpdate);
-updateCurrentSection();
