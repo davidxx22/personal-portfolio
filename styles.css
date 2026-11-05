@@ -1617,6 +1617,15 @@ main,
   line-height: 1.15;
   letter-spacing: -0.045em;
 }
+.intro-name-ending {
+  white-space: nowrap;
+}
+.intro-badge {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  vertical-align: -0.02em;
+}
 .intro-role {
   margin-top: 8px;
   font-size: clamp(12px, 2vw, 15px);
