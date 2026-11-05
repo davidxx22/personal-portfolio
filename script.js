@@ -1,8 +1,14 @@
 const profileSidebar = document.querySelector(".profile-sidebar");
+const sectionMenu = document.querySelector(".section-menu");
 
 function positionProfileSidebar() {
   const height = profileSidebar.getBoundingClientRect().height;
-  const top = Math.min(24, window.innerHeight - height - 24);
+  const menuHeight = sectionMenu.offsetHeight;
+  const menuStyle = getComputedStyle(sectionMenu);
+  const menuClearance = menuHeight
+    ? menuHeight + parseFloat(menuStyle.top) + parseFloat(menuStyle.marginBottom)
+    : 24;
+  const top = Math.min(menuClearance, window.innerHeight - height - 24);
   profileSidebar.style.setProperty("--profile-top", `${top}px`);
   profileSidebar.parentElement.style.setProperty("--profile-top", `${top}px`);
   const frame = document.querySelector(".page-frame");
@@ -95,7 +101,6 @@ motionPreference.addEventListener("change", configureReveals);
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 
-const sectionMenu = document.querySelector(".section-menu");
 const sectionLinks = [...sectionMenu.querySelectorAll("a")];
 const menuToggle = sectionMenu.querySelector(".menu-toggle");
 menuToggle.hidden = false;

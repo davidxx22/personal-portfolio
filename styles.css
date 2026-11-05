@@ -6,7 +6,7 @@
   --muted: #666666;
   --line: #e5e5e5;
   --paper: #ffffff;
-  --canvas: #ffffff;
+  --nav-top: 16px;
   --soft: #f3f3f3;
   --shadow: 0 3px 15px #00000008;
 }
@@ -19,7 +19,6 @@ html {
 }
 body {
   margin: 0;
-  padding: 30px 24px;
   background: #ffffff;
   color: var(--ink);
   font-family: "Segoe UI", Arial, sans-serif;
@@ -127,12 +126,8 @@ ul {
   top: 12px;
 }
 .page-frame {
-  max-width: 1240px;
-  margin: 0 auto;
-  background: var(--canvas);
-  border-radius: 28px;
-  padding: 20px 20px 0;
-  box-shadow: 0 25px 80px #00000018;
+  min-height: 100dvh;
+  padding: var(--nav-top) clamp(12px, 3vw, 48px) 0;
 }
 
 .resume-shell {
@@ -274,26 +269,28 @@ main {
 }
 .section-menu {
   position: sticky;
-  top: 24px;
+  top: var(--nav-top);
   z-index: 10;
+  width: min(100%, 760px);
+  margin: 0 auto 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
   padding: 6px;
   background: transparent;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 32px;
   box-shadow: var(--shadow);
 }
 .section-menu::before {
   content: "";
   position: absolute;
-  top: -25px;
+  top: calc(-1px - var(--nav-top));
   left: -1px;
   right: -1px;
   bottom: -1px;
   z-index: -1;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 32px 32px;
   background: rgba(255, 255, 255, 0.88);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -364,7 +361,7 @@ main {
   flex: 1 0 auto;
   min-height: 44px;
   padding: 8px 10px;
-  border-radius: 10px;
+  border-radius: 24px;
   font-size: 11px;
   font-weight: 600;
   transition: background-color 0.2s, color 0.2s;
@@ -1246,19 +1243,7 @@ main {
   background: var(--accent-soft);
   border-color: var(--line);
 }
-@media (min-width: 1500px) {
-  body {
-    padding-block: 45px;
-  }
-}
 @media (max-width: 1100px) {
-  body {
-    padding: 20px 18px;
-  }
-  .page-frame {
-    padding-inline: 16px;
-    border-radius: 24px;
-  }
   .resume-shell {
     grid-template-columns: 250px minmax(0, 1fr);
     gap: 16px;
@@ -1461,13 +1446,8 @@ main {
   html {
     scroll-padding-top: 140px;
   }
-  body {
-    padding: 10px;
-    font-size: 14px;
-  }
   .page-frame {
     padding: 12px 12px 0;
-    border-radius: 20px;
   }
 
   .resume-shell {
@@ -1749,10 +1729,10 @@ main {
     padding: 0;
   }
   .page-frame {
+    min-height: 0;
     padding: 0;
-    box-shadow: none;
-    border-radius: 0;
   }
+  .section-menu,
   .project-toolbar,
   .project-actions,
   .social-strip,
