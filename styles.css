@@ -800,6 +800,17 @@ main,
 .button-primary:hover {
   background: color-mix(in srgb, var(--accent) 80%, black);
 }
+.more-projects .button {
+  gap: 6px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .more-projects .button svg {
+    transition: transform 0.2s ease;
+  }
+  .more-projects .button:is(:hover, :focus-visible) svg {
+    transform: translateX(3px);
+  }
+}
 .button-text:hover {
   text-decoration: underline;
 }
