@@ -310,7 +310,7 @@ main,
 .section-menu-links a:hover,
 .section-menu-links a:focus-visible {
   background: var(--accent-soft);
-  color: var(--link-hover);
+  color: var(--ink);
 }
 .section-menu-links a[aria-current="location"] {
   color: var(--ink);
@@ -1380,9 +1380,6 @@ main,
   margin-top: 22px;
   font-size: clamp(28px, 5vw, 40px);
   letter-spacing: -0.055em;
-}
-.intro-hero h1 span {
-  color: var(--link-hover);
 }
 .intro-summary {
   margin-top: 16px;
