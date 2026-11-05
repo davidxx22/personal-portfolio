@@ -291,9 +291,9 @@ main {
   bottom: -1px;
   z-index: -1;
   border-radius: 0 0 32px 32px;
-  background: rgba(255, 255, 255, 0.88);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: rgb(255 255 255 / 42%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   pointer-events: none;
 }
 .section-menu-links {
