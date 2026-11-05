@@ -562,6 +562,34 @@ main,
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
+.more-projects {
+  margin-top: 18px;
+  text-align: center;
+}
+.more-projects summary {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  list-style: none;
+}
+.more-projects summary::-webkit-details-marker {
+  display: none;
+}
+.more-projects summary:hover {
+  background: var(--accent-soft);
+}
+.more-projects summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.more-projects:not([open]) .more-projects-hide,
+.more-projects[open] .more-projects-show {
+  display: none;
+}
+.more-projects .project-grid {
+  margin-top: 18px;
+  text-align: left;
+}
 .project-card {
   border-radius: 17px;
   overflow: hidden;
