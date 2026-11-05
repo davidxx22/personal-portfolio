@@ -222,13 +222,23 @@ main,
   background: transparent;
 }
 .nav-logo {
-  justify-content: start;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  justify-items: start;
 }
 .theme-toggle {
   grid-column: 3;
   grid-row: 1;
+}
+@media (min-width: 769px) {
+  .theme-toggle {
+    position: relative;
+  }
+  .theme-toggle::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -6px;
+    height: 20px;
+    border-inline-start: 1px solid var(--line);
+  }
 }
 .nav-logo:hover,
 .theme-toggle:hover,
@@ -1616,7 +1626,33 @@ main,
   margin-top: 8px;
 }
 .intro-profile .social-strip a {
-  border-color: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--ink);
+  opacity: 0.7;
+  transition: opacity 150ms, color 150ms, transform 150ms;
+}
+.intro-profile .social-strip a:hover,
+.intro-profile .social-strip a:focus-visible {
+  background: transparent;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.intro-profile .social-strip a[href*="linkedin.com"]:is(:hover, :focus-visible) {
+  color: #0a66c2;
+}
+.intro-profile .social-strip a[href^="mailto:"]:is(:hover, :focus-visible) {
+  color: #ea4335;
+}
+.intro-social-icon,
+.intro-github {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+.intro-github {
+  background: currentColor;
+  mask: url("assets/icons/github.svg") center / contain no-repeat;
 }
 .intro-hero h1 {
   margin-top: 22px;
