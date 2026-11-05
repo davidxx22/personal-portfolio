@@ -1691,7 +1691,10 @@ main,
   background: var(--accent);
   color: white;
 }
-.intro-action:hover {
+.intro-action:disabled {
+  cursor: default;
+}
+.intro-action:not(:disabled):hover {
   background: color-mix(in srgb, var(--accent) 85%, black);
 }
 .intro-highlights {
