@@ -537,6 +537,9 @@ main,
   min-width: 0;
   padding-bottom: 8px;
 }
+.panel.projects-section#projects {
+  padding-bottom: 18px;
+}
 .section-heading {
   display: flex;
   justify-content: space-between;
@@ -564,7 +567,6 @@ main,
 }
 .more-projects {
   margin-top: 18px;
-  padding-bottom: 16px;
   text-align: center;
 }
 .project-page-link {
