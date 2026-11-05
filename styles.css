@@ -1638,8 +1638,8 @@ main,
   opacity: 1;
   transform: translateY(-2px);
 }
-.intro-profile .social-strip a[href*="linkedin.com"]:is(:hover, :focus-visible) {
-  color: #0a66c2;
+.intro-profile .social-strip a[href*="upwork.com"]:is(:hover, :focus-visible) {
+  color: #108a00;
 }
 .intro-profile .social-strip a[href^="mailto:"]:is(:hover, :focus-visible) {
   color: #ea4335;
