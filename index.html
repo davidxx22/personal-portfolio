@@ -20,6 +20,13 @@
     <meta property="og:type" content="website" />
     <title>David Rey Bali-os | Web Developer & UI/UX Designer</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -83,7 +90,10 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-frame" id="home">
-      <nav class="section-menu" aria-label="CV sections">
+      <nav class="section-menu" aria-label="Portfolio navigation">
+        <a class="nav-logo" href="#home" aria-label="David Rey Bali-os, back to top">
+          <img src="assets/favicon.svg" width="32" height="32" alt="" />
+        </a>
         <button class="menu-toggle" type="button" aria-label="Toggle section navigation" aria-expanded="false" aria-controls="section-menu-links" hidden>
           <span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>
@@ -96,6 +106,15 @@
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
+        <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+          <svg class="icon theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.9 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.9 13.2Z" />
+          </svg>
+          <svg class="icon theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" />
+          </svg>
+        </button>
       </nav>
       <div class="resume-shell">
         <aside class="profile-sidebar" aria-labelledby="profile-name">

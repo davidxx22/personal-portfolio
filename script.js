@@ -1,5 +1,18 @@
 const profileSidebar = document.querySelector(".profile-sidebar");
 const sectionMenu = document.querySelector(".section-menu");
+const themeToggle = sectionMenu.querySelector(".theme-toggle");
+const pageTheme = document.documentElement.dataset;
+
+themeToggle.setAttribute("aria-pressed", String(pageTheme.theme === "dark"));
+themeToggle.hidden = false;
+themeToggle.addEventListener("click", () => {
+  const dark = pageTheme.theme !== "dark";
+  pageTheme.theme = dark ? "dark" : "light";
+  themeToggle.setAttribute("aria-pressed", String(dark));
+  try {
+    localStorage.setItem("portfolio-theme", pageTheme.theme);
+  } catch {}
+});
 
 function positionProfileSidebar() {
   const height = profileSidebar.getBoundingClientRect().height;
@@ -101,8 +114,11 @@ motionPreference.addEventListener("change", configureReveals);
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 
-const sectionLinks = [...sectionMenu.querySelectorAll("a")];
+const sectionLinks = [...sectionMenu.querySelectorAll(".section-menu-links a")];
 const menuToggle = sectionMenu.querySelector(".menu-toggle");
+sectionMenu.querySelector(".nav-logo").addEventListener("click", () => {
+  menuToggle.setAttribute("aria-expanded", "false");
+});
 menuToggle.hidden = false;
 menuToggle.addEventListener("click", () => {
   const expanded = menuToggle.getAttribute("aria-expanded") === "true";
