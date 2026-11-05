@@ -810,6 +810,7 @@ main,
   .panel-heading .page-nav-link svg,
   .portfolio-back-link svg,
   .contact-arrow,
+  .work-arrow,
   .back-to-top svg {
     transition: transform 0.2s ease;
   }
@@ -824,6 +825,9 @@ main,
   }
   .portfolio-back-link:is(:hover, :focus-visible) svg {
     transform: translateX(-3px);
+  }
+  .work-panel a:is(:hover, :focus-visible) .work-arrow {
+    transform: translate(3px, -3px);
   }
 }
 .button-text:hover {
@@ -1527,7 +1531,6 @@ main,
   background: var(--accent-soft);
 }
 .work-arrow {
-  width: 14px;
   margin-left: auto;
   color: var(--muted);
 }
