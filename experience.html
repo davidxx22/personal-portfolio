@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience | David Rey Bali-os</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-frame">
+      <header class="site-header">
+        <nav class="section-menu" aria-label="Portfolio navigation">
+          <a class="nav-logo" href="index.html#home" aria-label="David Rey Bali-os, home">
+            <img src="assets/favicon.svg" width="32" height="32" alt="" />
+          </a>
+          <button class="menu-toggle" type="button" aria-label="Toggle section navigation" aria-expanded="false" aria-controls="section-menu-links" hidden>
+            <span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
+          <div class="section-menu-links" id="section-menu-links">
+            <a href="index.html#about">About</a>
+            <a href="experience.html" aria-current="page">Experience</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+          <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+            <svg class="icon theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.9 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.9 13.2Z" />
+            </svg>
+            <svg class="icon theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+      <main id="main" class="experience-page">
+        <a class="project-page-link" href="index.html#experience">← Back to portfolio</a>
+        <header>
+          <h1>Experience</h1>
+          <p>Where I’ve worked and what I did there.</p>
+        </header>
+        <div class="timeline">
+          <article>
+            <p class="timeline-date">2022 — 2026</p>
+            <div>
+              <h3>Comic Flatter</h3>
+              <p class="entry-label">Freelance · Client-based</p>
+              <ul class="experience-duties">
+                <li>Applied flat base colors to comic characters, backgrounds, and objects in Adobe Photoshop.</li>
+                <li>Prepared illustrations for colorists to add shading, lighting, and finishing details.</li>
+              </ul>
+            </div>
+          </article>
+          <article>
+            <p class="timeline-date">Jun 15 — 26, 2026</p>
+            <div>
+              <h3>Lead Generation Intern</h3>
+              <p class="entry-label">Two-week internship</p>
+              <ul class="experience-duties">
+                <li>Researched potential customers and collected business contact information for outreach and prospecting.</li>
+                <li>Designed and developed a website during the internship.</li>
+              </ul>
+            </div>
+          </article>
+          <article>
+            <p class="timeline-date">2025 — 2026</p>
+            <div>
+              <h3>Shopify Product Listing</h3>
+              <p class="entry-label">Self-Directed Practice · Demo store</p>
+              <ul class="experience-duties">
+                <li>Created draft Shopify listings with product images, descriptions, specifications, and size guides.</li>
+                <li>Configured variants, pricing, SKUs, inventory, and metafields.</li>
+                <li>Organized products into categories and collections.</li>
+                <li>Prepared page titles, meta descriptions, and URL handles, and checked storefront previews for consistency.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <p>© <span id="current-year">2026</span> David Rey Bali-os</p>
+      </footer>
+    </div>
+  </body>
+</html>

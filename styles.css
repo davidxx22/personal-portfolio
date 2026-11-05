@@ -312,7 +312,7 @@ main,
   background: var(--accent-soft);
   color: var(--ink);
 }
-.section-menu-links a[aria-current="location"] {
+.section-menu-links a[aria-current] {
   color: var(--ink);
 }
 .section-anchor {
@@ -338,6 +338,7 @@ main,
 .panel-heading h2,
 .panel-heading h3,
 .projects-archive h1,
+.experience-page h1,
 .contact-section h2 {
   font-size: 1.5rem;
   font-weight: 400;
@@ -347,6 +348,7 @@ main,
   .panel-heading h2,
   .panel-heading h3,
   .projects-archive h1,
+  .experience-page h1,
   .contact-section h2 {
     font-size: 1.875rem;
   }
@@ -357,7 +359,7 @@ main,
   gap: 24px;
 }
 .about-grid p,
-.timeline article > div > p:last-child {
+.experience-duties {
   font-size: 15px;
 }
 .about-grid p {
@@ -372,10 +374,23 @@ main,
   letter-spacing: -0.015em;
   margin-bottom: 12px;
 }
-.journey-section {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+.experience-summary {
+  padding-block: 28px;
+}
+.experience-list {
+  display: grid;
+  gap: 26px;
+}
+.experience-list article {
+  display: grid;
+  grid-template-columns: minmax(120px, 23%) minmax(0, 1fr);
+  gap: 16px;
+}
+.experience-page header p {
+  margin-top: 6px;
+}
+.experience-page .timeline {
+  margin-top: 14px;
 }
 .timeline {
   padding-left: 12px;
@@ -391,22 +406,19 @@ main,
   background: #dedede;
 }
 .timeline article {
-  display: grid;
-  grid-template-columns: 130px minmax(0, 1fr);
-  gap: 16px;
   position: relative;
-  padding-left: 16px;
-  margin-bottom: 30px;
+  padding-left: 24px;
+  margin-bottom: 34px;
 }
 .timeline article:last-child {
   margin-bottom: 0;
 }
 .timeline article::before {
   content: "";
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   position: absolute;
-  left: -9px;
+  left: -11px;
   top: 7px;
   border-radius: 50%;
   background: var(--accent);
@@ -414,22 +426,30 @@ main,
 }
 .timeline-date {
   font-size: 0.75rem;
-  color: #333;
+  color: var(--muted);
   padding-top: 2px;
 }
-.timeline h4 {
-  font-size: 15px;
+.experience-list h3,
+.timeline h3 {
+  font-size: 17px;
   font-weight: 650;
   letter-spacing: -0.015em;
 }
+.experience-list .entry-label,
 .timeline .entry-label {
   font-size: 12px;
   color: var(--muted);
   margin-top: 4px;
 }
-.timeline article > div > p:last-child {
+.experience-duties {
   margin-top: 10px;
   line-height: 1.8;
+  color: var(--muted);
+  list-style: disc;
+  padding-inline-start: 18px;
+}
+.experience-duties li + li {
+  margin-top: 6px;
 }
 .skills-layout {
   display: block;
@@ -931,7 +951,6 @@ main,
     transform 0.5s ease;
 }
 .eyebrow,
-.timeline-date,
 .skill-icon,
 .image-arrow,
 .detail-button {
@@ -976,10 +995,6 @@ main,
     padding: 24px;
   }
 
-  .timeline article {
-    grid-template-columns: 100px minmax(0, 1fr);
-    gap: 15px;
-  }
   .skill-card {
     padding: 21px;
   }
@@ -1010,12 +1025,9 @@ main,
   }
 
 
-  .timeline article {
+  .experience-list article {
     grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  .timeline h4 {
-    font-size: 14px;
+    gap: 4px;
   }
   .panel-heading h3 {
     font-size: 14px;
@@ -1092,11 +1104,8 @@ main,
     gap: 14px;
   }
   .about-grid p,
-  .timeline article > div > p:last-child {
+  .experience-duties {
     font-size: 16px;
-  }
-  .timeline h4 {
-    font-size: 15px;
   }
   .skills-grid {
     gap: 12px;
@@ -1246,7 +1255,8 @@ main,
 .intro-hero {
   padding-block: clamp(36px, 6vw, 72px) 16px;
 }
-.projects-archive {
+.projects-archive,
+.experience-page {
   padding-top: clamp(36px, 6vw, 72px);
 }
 .intro-profile {
