@@ -1380,14 +1380,19 @@ main,
   font-size: clamp(15px, 2.2vw, 17px);
   line-height: 1.85;
 }
+.intro-action,
+.more-projects .button,
+.work-widget summary {
+  min-height: 48px;
+  font-size: 16px;
+  line-height: 1.5;
+}
 .intro-action {
   margin-top: 24px;
   min-width: 168px;
-  min-height: 48px;
   border-radius: 8px;
   background: var(--accent);
   color: white;
-  font-size: 16px;
   font-weight: 600;
 }
 .intro-action:disabled {
@@ -1464,7 +1469,6 @@ main,
   display: flex;
   align-items: center;
   gap: 9px;
-  min-height: 44px;
   padding: 10px 16px;
   border-radius: 8px;
   background: var(--accent);
