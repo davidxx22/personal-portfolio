@@ -374,8 +374,17 @@ main,
   letter-spacing: -0.015em;
   margin-bottom: 12px;
 }
-.experience-summary {
-  padding-block: 28px;
+.experience-details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.experience-details-link:hover,
+.experience-details-link:focus-visible {
+  color: var(--ink);
 }
 .experience-list {
   display: grid;
