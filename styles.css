@@ -374,16 +374,17 @@ main,
   letter-spacing: -0.015em;
   margin-bottom: 12px;
 }
-.experience-details-link {
+.page-nav-link {
   display: inline-flex;
+  align-self: flex-start;
   align-items: center;
   gap: 6px;
   color: var(--muted);
   font-size: 13px;
   white-space: nowrap;
 }
-.experience-details-link:hover,
-.experience-details-link:focus-visible {
+.page-nav-link:hover,
+.page-nav-link:focus-visible {
   color: var(--ink);
 }
 .experience-list {
@@ -882,11 +883,10 @@ main,
   }
 }
 .site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
   padding: 24px 7px;
+  text-align: center;
   font-size: 10px;
 }
 .project-dialog {
@@ -1181,8 +1181,6 @@ main,
   .site-footer {
     font-size: 9px;
     padding: 22px 0;
-    flex-wrap: wrap;
-    gap: 10px;
   }
   .dialog-body {
     padding: 25px;
