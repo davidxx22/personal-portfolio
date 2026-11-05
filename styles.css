@@ -1645,7 +1645,8 @@ main,
   color: #ea4335;
 }
 .intro-social-icon,
-.intro-github {
+.intro-github,
+.intro-upwork {
   width: 20px;
   height: 20px;
   fill: currentColor;
@@ -1653,6 +1654,10 @@ main,
 .intro-github {
   background: currentColor;
   mask: url("assets/icons/github.svg") center / contain no-repeat;
+}
+.intro-upwork {
+  background: currentColor;
+  mask: url("assets/icons/upwork.svg") center / contain no-repeat;
 }
 .intro-hero h1 {
   margin-top: 22px;
