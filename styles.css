@@ -42,9 +42,6 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
-body.modal-open {
-  overflow: hidden;
-}
 a {
   color: inherit;
   text-decoration: none;
@@ -560,49 +557,6 @@ main,
   font-size: 11px;
   max-width: 220px;
 }
-.project-toolbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  align-items: center;
-  padding: 0 3px 20px;
-}
-.project-filters {
-  display: flex;
-  gap: 5px;
-}
-.project-filters button {
-  background: none;
-  border-radius: 6px;
-  padding: 8px 11px;
-  font-size: 10px;
-  border: 1px solid transparent;
-}
-.project-filters button[aria-pressed="true"] {
-  background: var(--accent);
-  color: white;
-}
-.project-filters button:hover {
-  border-color: #aaa;
-}
-.project-filters button span {
-  font-size: 8px;
-  padding-left: 4px;
-}
-.show-more-projects {
-  display: block;
-  margin: 6px auto 0;
-  background: none;
-  border: 0;
-  padding: 8px 11px;
-  min-height: 44px;
-  font-size: 12px;
-  white-space: nowrap;
-  transition: color 0.2s;
-}
-.show-more-projects:hover {
-  color: var(--link-hover);
-}
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -940,87 +894,9 @@ main,
   overscroll-behavior: contain;
   box-shadow: 0 25px 100px #0003;
 }
-.screenshot-dialog {
-  width: min(440px, calc(100% - 32px));
-  max-height: 90dvh;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: var(--paper);
-  color: var(--ink);
-}
-.screenshot-dialog::backdrop {
-  background: #000a;
-}
-.screenshot-dialog h2 {
-  margin: 0 40px 20px 0;
-  font-size: 18px;
-}
-.screenshot-full {
-  width: 100%;
-  height: 55dvh;
-  object-fit: contain;
-}
-.screenshot-stage {
-  position: relative;
-  padding: 0 36px;
-}
-.screenshot-stage button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  min-height: 44px;
-  width: 36px;
-  padding: 0;
-  background: none;
-  font-size: 22px;
-}
-.screenshot-previous {
-  left: 0;
-}
-.screenshot-next {
-  right: 0;
-}
-.screenshot-stage button:hover {
-  color: var(--link-hover);
-}
-.screenshot-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 16px;
-}
-.screenshot-controls button {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 8px;
-  background: none;
-  font-size: 22px;
-}
-.screenshot-controls button:hover {
-  color: var(--link-hover);
-}
-.screenshot-count {
-  font-size: 12px;
-  white-space: nowrap;
-}
 .project-dialog::backdrop {
   background: #000a;
   backdrop-filter: blur(5px);
-}
-.dialog-close {
-  position: absolute;
-  z-index: 1;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--paper);
-  box-shadow: 0 2px 8px #0002;
-  font-size: 25px;
-  line-height: 1;
 }
 .dialog-image {
   width: 100%;
@@ -1263,10 +1139,6 @@ main,
   .section-heading > p {
     max-width: 330px;
   }
-  .project-toolbar {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
   .project-grid {
     grid-template-columns: 1fr;
   }
@@ -1376,10 +1248,6 @@ main,
   }
   .section-heading > p {
     font-size: 12px;
-  }
-  .project-filters button {
-    font-size: 10px;
-    padding: 9px 10px;
   }
   .project-count {
     font-size: 10px;
@@ -1775,7 +1643,6 @@ main,
   }
   .site-header,
   .floating-actions,
-  .project-toolbar,
   .project-actions,
   .social-strip,
   .button,

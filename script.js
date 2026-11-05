@@ -13,44 +13,6 @@ themeToggle.addEventListener("click", () => {
   } catch {}
 });
 
-const filterBar = document.querySelector(".project-filters");
-const filterButtons = [...filterBar.querySelectorAll("button")];
-const projectCards = [...document.querySelectorAll(".project-card")];
-const showMoreProjects = document.querySelector(".show-more-projects");
-const featuredProjects = new Set(["sideform", "tripon", "verde", "sakyan"]);
-let activeFilter = "all";
-let projectsExpanded = false;
-filterBar.hidden = false;
-
-function updateProjects() {
-  projectCards.forEach((card) => {
-    const match = activeFilter === "all" || card.dataset.category === activeFilter;
-    const visible = match && (activeFilter !== "all" || projectsExpanded || featuredProjects.has(card.dataset.project));
-    card.hidden = !visible;
-    if (visible) card.classList.remove("is-pending");
-  });
-  showMoreProjects.hidden = activeFilter !== "all";
-  showMoreProjects.textContent = projectsExpanded ? "Show less" : "Show more";
-  showMoreProjects.setAttribute("aria-expanded", String(projectsExpanded));
-}
-
-showMoreProjects.addEventListener("click", () => {
-  projectsExpanded = !projectsExpanded;
-  updateProjects();
-});
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    activeFilter = button.dataset.filter;
-    projectsExpanded = false;
-    filterButtons.forEach((item) =>
-      item.setAttribute("aria-pressed", String(item === button)),
-    );
-    updateProjects();
-  });
-});
-updateProjects();
-
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 const revealElements = [...document.querySelectorAll(".reveal")];
 let revealObserver;
@@ -144,7 +106,7 @@ function closeWorkWidget() {
 workClose.hidden = false;
 workClose.addEventListener("click", closeWorkWidget);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && workWidget.open && !document.querySelector("dialog[open]")) {
+  if (event.key === "Escape" && workWidget.open) {
     closeWorkWidget();
   }
 });
@@ -164,63 +126,3 @@ window.addEventListener("scroll", scheduleSectionUpdate, { passive: true });
 window.addEventListener("resize", scheduleSectionUpdate);
 window.addEventListener("load", scheduleSectionUpdate);
 updateCurrentSection();
-
-const screenshotDialog = document.querySelector(".screenshot-dialog");
-let screenshotTrigger;
-let screenshotIndex = 0;
-let screenshotProject;
-const screenshotGalleries = {
-  doneeit: Array.from({ length: 13 }, (_, index) => ({
-    src: `assets/projects/doneeit/screen-${String(index + 1).padStart(2, "0")}.webp`,
-    alt: `DoneeIt app screenshot ${index + 1}`,
-  })),
-  financify: [
-    ["dashboard", "Balance and recent transactions"],
-    ["analytics", "Budget allocation and analytics"],
-    ["recipes", "Recipe recommendations"],
-    ["currency", "Currency conversion"],
-  ].map(([name, description]) => ({
-    src: `assets/projects/financify/${name}.webp`,
-    alt: `Financify app: ${description}`,
-  })),
-};
-
-function renderScreenshot() {
-  const gallery = screenshotGalleries[screenshotProject];
-  const image = screenshotDialog.querySelector("img");
-  image.src = gallery[screenshotIndex].src;
-  image.alt = gallery[screenshotIndex].alt;
-  screenshotDialog.querySelector(".screenshot-count").textContent = `${screenshotIndex + 1} / ${gallery.length}`;
-}
-
-function changeScreenshot(step) {
-  const length = screenshotGalleries[screenshotProject].length;
-  screenshotIndex = (screenshotIndex + step + length) % length;
-  renderScreenshot();
-}
-
-screenshotDialog.querySelector(".screenshot-previous").addEventListener("click", () => changeScreenshot(-1));
-screenshotDialog.querySelector(".screenshot-next").addEventListener("click", () => changeScreenshot(1));
-screenshotDialog.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-    event.preventDefault();
-    changeScreenshot(event.key === "ArrowLeft" ? -1 : 1);
-  }
-});
-document.querySelectorAll("[data-image-preview]").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    if (typeof screenshotDialog.showModal !== "function") return;
-    event.preventDefault();
-    screenshotProject = link.closest(".project-card").dataset.project;
-    screenshotIndex = 0;
-    renderScreenshot();
-    document.querySelector("#screenshot-title").textContent = link.closest(".project-card").querySelector("h3").textContent;
-    screenshotTrigger = link;
-    document.body.classList.add("modal-open");
-    screenshotDialog.showModal();
-  });
-});
-screenshotDialog.addEventListener("close", () => {
-  document.body.classList.remove("modal-open");
-  screenshotTrigger?.focus();
-});
