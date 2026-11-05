@@ -566,29 +566,17 @@ main,
   margin-top: 18px;
   text-align: center;
 }
-.more-projects summary {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  cursor: pointer;
-  list-style: none;
+.project-page-link {
+  color: var(--link-hover);
 }
-.more-projects summary::-webkit-details-marker {
-  display: none;
+.project-page-link:hover {
+  text-decoration: underline;
 }
-.more-projects summary:hover {
-  background: var(--accent-soft);
+.projects-archive {
+  padding-block: 32px;
 }
-.more-projects summary:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
-}
-.more-projects:not([open]) .more-projects-hide,
-.more-projects[open] .more-projects-show {
-  display: none;
-}
-.more-projects .project-grid {
-  margin-top: 18px;
-  text-align: left;
+.projects-archive h1 {
+  margin: 16px 0 20px;
 }
 .project-card {
   border-radius: 17px;
